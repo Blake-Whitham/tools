@@ -1,5 +1,14 @@
 #!/bin/bash
 
+##notes
+#-------great = "Hello, $company hiring team"
+
+#insert slots for company culture, company moto, company goal
+
+## must change font / lose pstopdf and write straight to a txt.
+
+##wordle API? can i use a popular word algorithm to sniff out culture, motto, and goals to insert into letter?
+
 # ------------notes-----------------
 # this script requires pstopdf to be installed
 # you can check if you have it with the following command
@@ -25,6 +34,8 @@ destdir=~/Desktop
 # --------Do not edit below----------
 
 
+echo "please enter the name of the COMPANY";
+read company;
 while true; do
     read -p "do you know the hiring manager's name?" yn
     case $yn in
@@ -32,23 +43,21 @@ while true; do
         read hiring_manager;
         greeting="Dear "${hiring_manager}","
         break;;
-        [Nn]* ) greeting="To whom it may concern,";
+        [Nn]* ) greeting="Hello, ${company} hiring team,";
         break;;
         * ) echo "Please answer yes or no.";
     esac
 done
-        echo "please enter the name of the COMPANY";
-        read company;
-        echo "please enter the POSITION you are applying for";
-        read position;
-        echo "please enter 1/4 VALUE you would bring to the team";
-        read criteria1;
-        echo "please enter 2/4 VALUE you would bring to the team";
-        read criteria2;
-        echo "please enter 3/4 VALUE you would bring to the team";
-        read criteria3;
-        echo "please enter 4/4 VALUE you would bring to the team";
-        read criteria4;
+echo "please enter the POSITION you are applying for";
+read position;
+echo "please enter 1/4 VALUE you would bring to the team";
+read criteria1;
+echo "please enter 2/4 VALUE you would bring to the team";
+read criteria2;
+echo "please enter 3/4 VALUE you would bring to the team";
+read criteria3;
+echo "please enter 4/4 VALUE you would bring to the team";
+read criteria4;
 
 #-----------change the paragraph below to personalize------------
 
@@ -72,7 +81,7 @@ cover="
 
     This letter is to express my interest in the open position at "${company}" for the "${position}" role. As a graduate of the Hack Reactor boot-camp that was hired immediately after graduation to be part of the curriculum team, I am confident that I have the experience and skills to add value to your organization.
 
-    I'm a natural problem solver that enjoys thinking critically and creatively about how to best approach a hurdle. This is put in the spotlight when I'm working on a project with a team that requires me to be outside of my comfort zone thus forcing myself to grow. I used these skills to my benefit to climb up to the position of Lead Software Engineering Immersive Resident at Hack Reactor, and was often commended by my dedication to the project at hand as well as my drive and desire for continual iterative improvement. I am a naturally curious person that wants to understand how and why things work, and then utilize that information to accelarate and improve my abilities.
+    I'm a natural problem solver that enjoys thinking critically and creatively about how to best approach a hurdle. This is put in the spotlight when I'm working on a project with a team that requires me to be outside of my comfort zone thus forcing myself to grow. I used these skills to my benefit to climb up to the position of Lead Software Engineering Immersive Resident at Hack Reactor, and was often commended by my dedication to the project at hand as well as my drive and desire for continual iterative improvement. I am a naturally curious person that wants to understand how and why things work, and then utilize that information to accelerate and improve my abilities.
 
     The position's listed requirements stuck out to me because they closely embody my strengths. A few aspects that I believe would allow me to add value to your team would be:
       "${criteria1}"
